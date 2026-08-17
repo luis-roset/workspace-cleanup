@@ -1,0 +1,333 @@
+{
+  "organization": "luisroset-org",
+  "hostname": "app.terraform.io",
+  "generated_at": "2026-08-17T10:11:42.705541+00:00",
+  "summary": {
+    "total": 40,
+    "succeeded": 5,
+    "failed": 6,
+    "skipped": 29
+  },
+  "workspaces": [
+    {
+      "name": "ec2-test_RITM0010011",
+      "workspace_id": "ws-HEHDfJAHGqf2Pr7X",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "ec2-test",
+      "workspace_id": "ws-5YaS8qdsetc9ABNy",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "HCP-policy-demo",
+      "workspace_id": "ws-L6XskYQUzc2fdrDQ",
+      "outcome": "failed",
+      "run_id": null,
+      "final_status": null,
+      "detail": "could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-kB9WGYR6msFWRTBy and may not be unlocked except by them."
+    },
+    {
+      "name": "test-1",
+      "workspace_id": "ws-okdBp8aoAJZoAFVS",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010010",
+      "workspace_id": "ws-gj3LDmKEqKv83kEv",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010010_dev185469",
+      "workspace_id": "ws-SKsXAo1SLEsS7L1C",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010011",
+      "workspace_id": "ws-6A9yPY5dfd3nVqeK",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "test-ec2-demo",
+      "workspace_id": "ws-8vqRMNFQSwCpSCQf",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "test-s3-module",
+      "workspace_id": "ws-zWzQwxgZd5LXjXPT",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "test-hashicat-policies",
+      "workspace_id": "ws-sSPpaHxkEQagTAfj",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "US-Compute-GCP-1",
+      "workspace_id": "ws-JASdxnTKTW27mvz1",
+      "outcome": "failed",
+      "run_id": "run-FTQWfbbuD5UZLKST",
+      "final_status": "errored",
+      "detail": "errored: plan failed reading google_compute_instance_template.tpl — Compute Engine API is disabled on GCP project 'learned-glow-330306' (SERVICE_DISABLED / accessNotConfigured). Enable it at https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=learned-glow-330306, or the project/credentials backing this workspace no longer exist."
+    },
+    {
+      "name": "vault-rds-aws-peering",
+      "workspace_id": "ws-o4oDZqcKx6nUtAuN",
+      "outcome": "failed",
+      "run_id": null,
+      "final_status": null,
+      "detail": "could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-eHL6DLNeayGJheMK and may not be unlocked except by them."
+    },
+    {
+      "name": "demo-vault-kubernetes-vso",
+      "workspace_id": "ws-EpDcxWDmqQhVN9RM",
+      "outcome": "failed",
+      "run_id": null,
+      "final_status": null,
+      "detail": "could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-sBdxUA52mnj7R7MU and may not be unlocked except by them."
+    },
+    {
+      "name": "api-test1",
+      "workspace_id": "ws-24jmH37o3z73Nbsh",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "luis-test",
+      "workspace_id": "ws-iQpHyGUXiD3QVgyy",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "Vault-Enterprise",
+      "workspace_id": "ws-AoC6Be5ZiEYSnmFH",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "no-code-test-Nikita",
+      "workspace_id": "ws-y7oBJEKHRQdHnjfH",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "Vault-Splunk",
+      "workspace_id": "ws-xwBME5az5f29EoBV",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "test-module",
+      "workspace_id": "ws-qLfgWyWNDJmNa5uu",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "no-code-test-2",
+      "workspace_id": "ws-75piHcUgih256mVU",
+      "outcome": "failed",
+      "run_id": null,
+      "final_status": null,
+      "detail": "could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-7Uh9yVcT3DG2TeD3 and may not be unlocked except by them."
+    },
+    {
+      "name": "no-code-test-ec2",
+      "workspace_id": "ws-PMGkA3x9WMCa3q24",
+      "outcome": "success",
+      "run_id": "run-ovPHGaqybSHtdAUN",
+      "final_status": "applied",
+      "detail": "destroyed"
+    },
+    {
+      "name": "no-code-test-3",
+      "workspace_id": "ws-eNfWWzSSX4EhZk4s",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "no-code-test",
+      "workspace_id": "ws-qEkqnViScun9LJpA",
+      "outcome": "success",
+      "run_id": "run-4vvUDdeLF7rkytwZ",
+      "final_status": "applied",
+      "detail": "destroyed"
+    },
+    {
+      "name": "RITM0010001_dev185469",
+      "workspace_id": "ws-MURqYstp9xcpZro8",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010002_dev185469",
+      "workspace_id": "ws-iGdWTbJztgcUKc4B",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010006",
+      "workspace_id": "ws-6XxbCMAdBrmvYCcj",
+      "outcome": "success",
+      "run_id": "run-gjoVEDHQLWTXs5uC",
+      "final_status": "applied",
+      "detail": "destroyed"
+    },
+    {
+      "name": "RITM0010005",
+      "workspace_id": "ws-an3BPCvrZ2hSiStX",
+      "outcome": "success",
+      "run_id": "run-7KFf4LHGkzwtGqrv",
+      "final_status": "applied",
+      "detail": "destroyed"
+    },
+    {
+      "name": "RITM0010004",
+      "workspace_id": "ws-QCXmP551DrK4RRcU",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010003",
+      "workspace_id": "ws-3yzx5aU3cTvkfNVU",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010002",
+      "workspace_id": "ws-4HRdtf9WdnkALeZz",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "RITM0010001",
+      "workspace_id": "ws-aQ4EZ12adZ69WFu1",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "vault-tfc",
+      "workspace_id": "ws-V9QJqNQVNKjXPpna",
+      "outcome": "success",
+      "run_id": "run-XkVrQGW3zrJcaten",
+      "final_status": "applied",
+      "detail": "destroyed"
+    },
+    {
+      "name": "learn-terraform-github-actions",
+      "workspace_id": "ws-uzDthMe6Y5Ltwqe6",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "Azure-simple-resource",
+      "workspace_id": "ws-8oMA4MQejiX6URZS",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "terraform-aws-ec2-instance",
+      "workspace_id": "ws-n659gVY6XFw8cmLk",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "OAuth",
+      "workspace_id": "ws-hMziVWnQUBKXrb2y",
+      "outcome": "failed",
+      "run_id": "run-GiMvzFPW5VHr3sJi",
+      "final_status": "errored",
+      "detail": "errored: plan failed refreshing tfe_organization.oauth — 'unauthorized' from the HCP Terraform API. This workspace's own Terraform config uses the 'tfe' provider with a token (workspace variable) that is expired/revoked, unrelated to the token this tool used."
+    },
+    {
+      "name": "learn-hcp-packer-run-tasks-data-source-validation",
+      "workspace_id": "ws-A9aVzJJwFzUKoJYi",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "integration_test",
+      "workspace_id": "ws-xjAs9ZF2EWPB2xJX",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "aws-securitygroup-vpc-peering",
+      "workspace_id": "ws-12eAZ2QJxL5AJKWT",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    },
+    {
+      "name": "test",
+      "workspace_id": "ws-iJosa8yyUPbmLPxU",
+      "outcome": "skipped",
+      "run_id": null,
+      "final_status": null,
+      "detail": "no resources in state"
+    }
+  ]
+}
