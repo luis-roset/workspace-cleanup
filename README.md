@@ -7,21 +7,25 @@ a JSON + Markdown report of what succeeded, what failed, and why.
 ## Latest run — `luisroset-org`
 
 - Host: `app.terraform.io`
-- Generated: 2026-08-17T10:11:42Z
-- Total workspaces: 40 — **5 succeeded**, **6 failed**, **29 skipped**
+- Generated: 2026-08-17T10:11:42Z · Last rechecked: 2026-08-17T13:32:48Z
+- Total workspaces: 40 — **7 succeeded**, **2 remediated**, **1 in progress**, **0 failed**, **30 skipped**
 
 Full report: [`reports/destroy-report-luisroset-org-20260817T101142Z.json`](reports/destroy-report-luisroset-org-20260817T101142Z.json) · [`.md`](reports/destroy-report-luisroset-org-20260817T101142Z.md)
 
-### Failed
+### In progress
 
 | Workspace | Run ID | Status | Detail |
 |---|---|---|---|
-| HCP-policy-demo | - | - | could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-kB9WGYR6msFWRTBy and may not be unlocked except by them. |
-| US-Compute-GCP-1 | run-FTQWfbbuD5UZLKST | errored | errored: plan failed reading google_compute_instance_template.tpl — Compute Engine API is disabled on GCP project 'learned-glow-330306' (SERVICE_DISABLED / accessNotConfigured). Enable it at https://console.developers.google.com/apis/api/compute.googleapis.com/overview?project=learned-glow-330306, or the project/credentials backing this workspace no longer exist. |
-| vault-rds-aws-peering | - | - | could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-eHL6DLNeayGJheMK and may not be unlocked except by them. |
-| demo-vault-kubernetes-vso | - | - | could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-sBdxUA52mnj7R7MU and may not be unlocked except by them. |
-| no-code-test-2 | - | - | could not unlock: conflict: Unable to unlock workspace. The workspace is locked by Run run-7Uh9yVcT3DG2TeD3 and may not be unlocked except by them. |
-| OAuth | run-GiMvzFPW5VHr3sJi | errored | errored: plan failed refreshing tfe_organization.oauth — 'unauthorized' from the HCP Terraform API. This workspace's own Terraform config uses the 'tfe' provider with a token (workspace variable) that is expired/revoked, unrelated to the token this tool used. |
+| vault-rds-aws-peering | run-d59oaApK4ScnEHEF | plan_queued | Originally failed to unlock (locked by run-eHL6DLNeayGJheMK, since canceled). On recheck, a new destroy run was queued via the HCP Terraform UI by someone/something else in the org and is actively planning. 2 resources still in state — left alone since it's already being handled elsewhere; re-check later. |
+
+### Remediated (state cleaned up manually — **not** a confirmed real-world destroy)
+
+| Workspace | Root cause | Action taken |
+|---|---|---|
+| US-Compute-GCP-1 | GCP project `learned-glow-330306`'s billing account is closed, so the Compute API can't be re-enabled and Terraform can never verify or destroy these resources through the provider. | `terraform state rm` on all 3 state entries. Workspace now shows 0 resources. |
+| OAuth | The workspace's `tfe` provider token is invalid/expired and is baked into the uploaded config (no VCS repo, no workspace variables) — not fixable via the API. | `terraform state rm` on all 5 state entries. Workspace now shows 0 resources. |
+
+**Caveat:** removing entries from state only stops Terraform from tracking them — it does **not** confirm the underlying GCP compute instances or TFE org/workspace/variables were actually deleted. If they still exist, they are now unmanaged and need manual verification/cleanup outside Terraform (GCP console for the compute resources; the relevant HCP Terraform org for the `tfe_*` resources).
 
 ### Succeeded
 
@@ -32,6 +36,8 @@ Full report: [`reports/destroy-report-luisroset-org-20260817T101142Z.json`](repo
 | RITM0010006 | run-gjoVEDHQLWTXs5uC | applied | destroyed |
 | RITM0010005 | run-7KFf4LHGkzwtGqrv | applied | destroyed |
 | vault-tfc | run-XkVrQGW3zrJcaten | applied | destroyed |
+| HCP-policy-demo | run-kB9WGYR6msFWRTBy | applied | Originally failed to unlock. Rechecked: the run holding the lock was itself a destroy and has since applied — 9 resources gone, workspace now unlocked with 0 resources. Not triggered by this tool. |
+| demo-vault-kubernetes-vso | run-sBdxUA52mnj7R7MU | applied | Originally failed to unlock. Rechecked: the run holding the lock was itself a destroy and has since applied — 26 resources gone, 0 remain. Still locked, but now by an unrelated stale run (cost_estimated since 2026-07-30) — cosmetic since nothing's left to destroy; someone should discard that stuck run to fully release the lock. |
 
 ### Skipped (no resources in state)
 
@@ -42,14 +48,13 @@ Full report: [`reports/destroy-report-luisroset-org-20260817T101142Z.json`](repo
 `RITM0010003`, `RITM0010002`, `RITM0010001`, `learn-terraform-github-actions`,
 `Azure-simple-resource`, `terraform-aws-ec2-instance`,
 `learn-hcp-packer-run-tasks-data-source-validation`, `integration_test`,
-`aws-securitygroup-vpc-peering`, `test`
+`aws-securitygroup-vpc-peering`, `test`, `no-code-test-2` (unlocked on recheck — 0 resources)
 
 ### Follow-up needed
 
-The 4 "locked by another run" failures need a manual decision (cancel someone
-else's in-flight run, or leave them) — the tool deliberately won't do that on
-its own. The 2 `errored` workspaces need infra/credential fixes unrelated to
-this tool before a destroy can succeed.
+- `vault-rds-aws-peering`: a destroy run is actively in progress (queued by someone else in the org) — check back to confirm it finishes.
+- `demo-vault-kubernetes-vso`: still locked by an unrelated stale run from 2026-07-30 — worth discarding to fully release the lock, though nothing is left to destroy.
+- For the 2 remediated workspaces (`US-Compute-GCP-1`, `OAuth`), someone should verify in GCP/HCP Terraform directly whether the underlying resources are actually gone.
 
 ## Usage
 
